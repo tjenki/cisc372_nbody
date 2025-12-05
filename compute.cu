@@ -2,7 +2,7 @@
 #include <cuda_runtime.h>
 #include "vector.h"
 #include "config.h"
-
+extern "C" void compute();
 // We use the existing global host arrays declared in vector.h:
 // extern vector3 *hVel;
 // extern vector3 *hPos;
@@ -79,6 +79,7 @@ void sum_and_update_kernel(vector3 *pos,
 }
 
 // GPU-based compute() replacing the original CPU version
+extern "C"
 void compute()
 {
     static int initialized = 0;
