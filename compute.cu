@@ -61,10 +61,10 @@ void sum_and_update_kernel(vector3 *pos,
 
     // Sum row i across all j
     for (int j = 0; j < n; ++j) {
-        const vector3 a = accels[i * n + j];
-        ax += a[0];
-        ay += a[1];
-        az += a[2];
+        int idx = i * n + j;
+        ax += accels[idx][0];
+        ay += accels[idx][1];
+        az += accels[idx][2];
     }
 
     // Update velocity
